@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">AndroidSample01</string>
+    <string name="login_btn_name">login</string>
+    <string name="password_txt_hint">Password</string>
+    <string name="userid_txt_hint">User ID</string>
+    <string name="srv_base_url">http://localhost:8080/</string>
+    <string name="srv_login">login_proc</string>
+</resources>
