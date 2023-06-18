@@ -14,12 +14,12 @@ import okhttp3.RequestBody
 
 class ApiClient {
     public fun call(res : Resources, srvcId: Int, body: RequestBody, cb : Callback) {
-        var url = res.getString(R.string.srv_base_url) + res.getString(srvcId)
-        var req = Request.Builder()
+        val url = res.getString(R.string.srv_base_url) + res.getString(srvcId)
+        val req = Request.Builder()
             .url(url)
             .addHeader("User-Agent", "Mobile") // for simulator
             .post(body).build()
-        var client = OkHttpClient().newBuilder().cookieJar(getCookieJar()).build()
+        val client = OkHttpClient().newBuilder().cookieJar(getCookieJar()).build()
         return client.newCall(req).enqueue(cb)
     }
 
