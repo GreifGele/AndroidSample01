@@ -39,7 +39,7 @@ class MainActivity : AppCompatActivity() {
                     }
                 }
 
-                ApiClient().call("api/posttest", FormBody.Builder().build(), cbTest)
+                ApiClient().call(resources, R.string.srvc_posttest, FormBody.Builder().build(), cbTest)
             }
 
             override fun onFailure(call: Call, e: IOException) {
@@ -47,6 +47,6 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        ApiClient().call("login_proc", body, cbLogin)
+        ApiClient().call(resources, R.string.srvc_login, body, cbLogin)
     }
 }

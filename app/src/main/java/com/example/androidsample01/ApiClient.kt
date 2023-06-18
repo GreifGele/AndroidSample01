@@ -1,5 +1,7 @@
 package com.example.androidsample01
 
+import android.content.res.Resources
+import android.provider.Settings.System.getString
 import android.webkit.CookieManager
 import okhttp3.Callback
 import okhttp3.Cookie
@@ -11,9 +13,8 @@ import okhttp3.RequestBody
 
 
 class ApiClient {
-    public fun call(service: String, body: RequestBody, cb : Callback) {
-        //var url = R.string.srv_base_url.toString() + service
-        var url = "http://10.0.2.2:8080/$service"
+    public fun call(res : Resources, srvcId: Int, body: RequestBody, cb : Callback) {
+        var url = res.getString(R.string.srv_base_url) + res.getString(srvcId)
         var req = Request.Builder()
             .url(url)
             .addHeader("User-Agent", "Mobile") // for simulator
