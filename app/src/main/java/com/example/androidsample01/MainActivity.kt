@@ -42,7 +42,7 @@ class MainActivity : AppCompatActivity() {
 
             override fun onFailure(call: Call, e: IOException) {
                 Log.e("Error", e.toString())
-                Toast.makeText(applicationContext, "Connection Error", Toast.LENGTH_SHORT).show()
+                //Toast.makeText(applicationContext, "Connection Error", Toast.LENGTH_SHORT).show()
             }
         }
 

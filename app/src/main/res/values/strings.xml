@@ -3,7 +3,7 @@
     <string name="login_btn_name">login</string>
     <string name="password_txt_hint">Password</string>
     <string name="userid_txt_hint">User ID</string>
-    <string name="srv_base_url">http://10.0.2.2:8080/</string>
+    <string name="srv_base_url">http://192.168.0.127:8080/</string>
     <string name="srvc_login">login_proc</string>
     <string name="srvc_posttest">api/posttest</string>
 </resources>
