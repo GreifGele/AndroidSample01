@@ -3,13 +3,11 @@ package com.example.androidsample01
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import okhttp3.Call
-import okhttp3.Callback
-import okhttp3.FormBody
-import okhttp3.Response
-import okio.IOException
+import okhttp3.ResponseBody
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class MenuActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -18,19 +16,16 @@ class MenuActivity : AppCompatActivity() {
     }
 
     fun onClickMenu1(view: View) {
-        val cbTest = object : Callback {
-            override fun onResponse(call: Call, response: Response) {
-                val responseBody = response.body?.string().orEmpty()
-                //Toast.makeText(applicationContext, "posttest Code = " + response.code.toString(), Toast.LENGTH_SHORT)
+        val cbTest = object : Callback<ResponseBody> {
+            override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
             }
 
-            override fun onFailure(call: Call, e: IOException) {
-                Log.e("Error", e.toString())
-                //Toast.makeText(applicationContext, "posttest connection error", Toast.LENGTH_SHORT)
+            override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
+                Log.e("Error", t.toString())
             }
         }
 
-        ApiClient().call(resources, R.string.srvc_posttest, FormBody.Builder().build(), cbTest)
+        ApiClient().getApiService().postTest().enqueue(cbTest)
     }
 
     fun onClickMenu2(view: View) {
