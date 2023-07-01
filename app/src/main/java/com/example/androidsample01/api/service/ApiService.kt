@@ -1,4 +1,4 @@
-package com.example.androidsample01.api;
+package com.example.androidsample01.api.service;
 
 import okhttp3.ResponseBody
 import retrofit2.Call

@@ -6,12 +6,19 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.Toast
+import com.example.androidsample01.api.service.ApiService
+import dagger.hilt.android.AndroidEntryPoint
 import okhttp3.ResponseBody
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import javax.inject.Inject
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
+
+    @Inject lateinit var apiService : ApiService
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -37,8 +44,6 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        ApiClient().getApiService()
-            .login("user1", "user1Pass")
-            .enqueue(cbLogin)
+        apiService.login("user1", "user1Pass").enqueue(cbLogin)
     }
 }
